@@ -1,0 +1,87 @@
+# Aiming for implementation simplicity while still maintaining reasonable efficiency:
+
+not sth. mathematically optimal:
+	Easy to understand and implement
+	Easy to debug
+	Can be optimized incrementally
+	Should still meet the operation count requirements
+
+## Design
+
+Core Strategy (high level):
+- Use Stack B as a simple auxiliary space
+- Push most numbers to B, keeping a small number in A (like 3)
+- While pushing to B, try to keep B somewhat ordered to make final merge easier
+- Sort the small remaining portion in A
+- Merge back from B to A strategically
+
+
+Simple Implementation Plan:
+
+Phase 1: Core Infrastructure
+1. Stack operations (sa, sb, pa, etc.)
+2. Basic input validation and parsing
+3. Helper functions (stack size, min/max, etc.)
+
+Phase 2: Simple Sort Components
+1. Sort 2-3 numbers (hardcoded optimal solutions)
+2. Basic push/pull operations
+3. Find min/max in stack
+
+Phase 3: Main Algorithm
+1. If size <= 3: use simple sort
+2. Otherwise:
+   - Push all but 3 numbers to B
+   - Sort remaining 3 in A
+   - Strategically merge back from B
+
+
+
+
+## analysis in terms of options in 00_high-level
+
+essentially a simplified version of a Selection/Insertion hybrid:
+	It's closer to Selection Sort in that we're choosing elements to move
+	But has elements of Insertion Sort in how we merge back
+
+
+
+Compared to the other approaches:
+
+	Quick/Merge adaptations: 
+	- Require complex partitioning/merging logic
+	- Need careful handling of pivot selection/subarray management
+	- Higher cognitive load during implementation
+
+	State Space Search:
+	- Requires complex graph theory implementation
+	- Need sophisticated heuristics
+	- Huge memory requirements
+
+	This Simple Approach:
+	+ Very straightforward control flow
+	+ Minimal state tracking needed
+	+ Each operation has clear purpose
+	+ Easy to visualize what's happening
+
+
+
+
+## Development, planning
+
+Core strategy, more concrete:
+
+1. Push all but exactly 3 numbers to Stack B
+2. Sort the 3 numbers remaining in Stack A using optimal predefined moves
+3. For merging back:
+   - For each push back to A:
+     * Find either max or min number in B (whichever requires fewer moves)
+     * Calculate exact rotations needed
+     * Push it back to A at correct position
+4. Final step: Rotate A until minimum is at top
+
+
+Each step will have exact calculations and conditions:
+	Precise formulas for calculating rotation costs
+	Exact conditions for choosing which number to move
+	Well-defined termination conditions
