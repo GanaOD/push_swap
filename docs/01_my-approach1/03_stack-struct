@@ -1,0 +1,62 @@
+why the stack structure is foundational:
+
+Why start with data structures:
+	They determine how we can manipulate and access data
+	They affect the efficiency of our operations
+	Every other function we write will depend on this structure
+	Getting it right early prevents painful refactoring later
+
+
+For this specific project - I need to:
+	efficiently rotate elements
+	compare adjacent elements
+	track the top and potentially the bottom of each stack
+	move elements between stacks
+
+
+
+01_approach:
+
+typedef struct s_stack
+{
+    long          nbr;       // The actual number
+    long          index;     // Used for optimization
+    struct s_stack *next;    // Next node in stack
+    struct s_stack *prev;    // Previous node in stack
+}   t_stack;
+
+key design decisions here:
+	Using a doubly-linked list (both next and prev pointers)
+		Makes rotation operations more efficient
+		Easier to traverse in both directions
+	Including an index field for potential optimizations
+	Using long instead of int for number storage (safer for intermediate calculations)
+
+
+
+Alternative approaches could be:
+
+// Array-based approach (less common for this project)
+typedef struct s_stack {
+    int *array;
+    int top;
+    int capacity;
+} t_stack;
+
+// Simpler linked list (if you don't need bidirectional traversal)
+typedef struct s_stack {
+    int nbr;
+    struct s_stack *next;
+} t_stack;
+
+
+
+For my algorithm specifically:
+	will be doing lots of rotations and accessing elements from both ends
+	need to find min/max values efficiently
+	need to check if elements are in order
+	will be calculating distances and costs
+
+
+Therefore: doubly-linked structure
+	keep the optimization-friendly struct from approach_01 (with index), can drop later if i want

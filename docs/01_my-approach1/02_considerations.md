@@ -36,3 +36,10 @@ int find_best_number(t_stack *b)
     // - Whether rotation or reverse rotation is better
     // - Position it needs to go to in A
 }
+
+
+
+## Potential next steps:
+Define stack structure
+Implement basic stack operations
+Build the three-number sort (this is a core building block)
