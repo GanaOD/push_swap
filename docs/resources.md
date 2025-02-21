@@ -1,4 +1,4 @@
-# algorithms
+# General: algorithms & data structures
 
 Tim Roughgarden
 Course, online:		Algorithms Specialization
@@ -8,16 +8,20 @@ Portal / platform:	coursera
 
 
 
-# push_swap
+# Project-specific: push_swap
 
 ## Info
 
 Oceano	https://www.youtube.com/watch?v=OaG81sDEpVk 
 
+Gitbook guide		https://42-cursus.gitbook.io/guide/rank-02/push_swap 
+
 
 ## Tester
 
 https://github.com/laisarena/push_swap_tester
+
+https://github.com/LeoFu9487/push_swap_tester 
 
 
 

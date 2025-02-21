@@ -1,3 +1,7 @@
+https://github.com/ayogun/push_swap/tree/main 
+https://medium.com/@ayogun/push-swap-c1f5d2d41e97 
+
+
 Any number pushed to B should be placed so it maintains a descending order
 	When returning numbers to A, they'll naturally come back in ascending order
 	The key question becomes: "What's the most efficient way to maintain this ordered structure in B?"

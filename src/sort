@@ -1,0 +1,65 @@
+# 3-number sort:
+	A core part of algorithm
+	Small enough to handle all cases explicitly
+	Will help me understand how the operations work	
+
+
+
+## Considering the possible arrangements of 3 numbers 
+	called a, b, c from top to bottom:
+
+Six possible arrangements:
+1 2 3    [Sorted]
+1 3 2    
+2 1 3    
+2 3 1    
+3 1 2    
+3 2 1
+
+For each arrangement, need the minimal sequence of operations to sort it.
+
+
+As a simple function:
+
+/* sort.c */
+void sort_three(t_stack **a)
+{
+    int first = (*a)->nbr;
+    int second = (*a)->next->nbr;
+    int third = (*a)->next->next->nbr;
+
+    if (first > second && second < third && first < third)
+        sa(a);  // Case: 2 1 3 -> 1 2 3
+    else if (first > second && second > third)
+    {
+        sa(a);  // Case: 3 2 1 -> 2 3 1
+        rra(a); // -> 1 2 3
+    }
+    // Add other cases...
+}
+
+
+
+## Aside: mathematics > computation:
+
+The mathematical relationship of order (like 1 < 2 < 3) is being represented in the physical structure of computer memory through linked nodes.
+
+
+what a 3-number sequence actually looks like in memory:
+
+// If we have numbers [2 1 3], the structure looks like:
+// Each box is a node in memory
+
+[Node1]          [Node2]          [Node3]
+nbr: 2           nbr: 1           nbr: 3
+next: -> Node2   next: -> Node3   next: NULL
+prev: NULL       prev: -> Node1   prev: -> Node2
+
+
+When we do operations like sa (swap first two), we're actually rewiring these connections, not just swapping numbers. 
+
+For example, after sa, it becomes:
+[Node2]          [Node1]          [Node3]
+nbr: 1           nbr: 2           nbr: 3
+next: -> Node1   next: -> Node3   next: NULL
+prev: NULL       prev: -> Node2   prev: -> Node1
