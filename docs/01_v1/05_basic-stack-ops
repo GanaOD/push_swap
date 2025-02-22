@@ -1,0 +1,46 @@
+# Architectural Patterns:
+
+Core vs Interface: 
+Created private core functions (swap, push, rotate, reverse_rotate) that do the actual work, with public wrapper functions (sa, sb, ss, etc.) that add operation logging
+	(private-public in terms of internal layering: all part of required interface for push_swap prog)
+
+DRY (Don't Repeat Yourself): 
+Common operations are implemented once and reused
+
+Single Responsibility: 
+Each core function handles one specific type of stack manipulation
+
+
+
+# Design Decisions:
+
+Each core function (swap, rotate, etc.) operates on a single stack pointer
+
+Public functions handle dual-stack operations and logging
+
+Edge cases handled at lowest level possible
+
+Stack integrity maintained through careful pointer management
+
+Error handling through early returns rather than complex conditionals
+
+
+
+# Current prog structure:
+
+push_swap/
+├── Makefile
+├── push_swap.h
+├── stack.c       # Basic stack management
+├── ops/          # All operations
+│   ├── push.c    # pa, pb
+│   ├── swap.c    # sa, sb, ss
+│   ├── rot.c     # ra, rb, rr
+│   └── rev.c     # rra, rrb, rrr
+├── sort.c        # Sorting algorithms
+└── main.c        # Entry point
+
+
+Each operations file contains:
+	A static helper function that does the actual work
+	The public interface functions that use this helper and print the operation name

@@ -6,6 +6,7 @@ not sth. mathematically optimal:
 	Can be optimized incrementally
 	Should still meet the operation count requirements
 
+
 ## Design
 
 Core Strategy (high level):

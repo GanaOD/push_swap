@@ -1,5 +1,6 @@
-Gaining vision & clarity
-Planning, design > implementation
+# Gaining vision & clarity. Planning, design
+
+
 
 # Key considerations
 
@@ -9,26 +10,33 @@ nature of the problem:
 	Stack B serves as an auxiliary space, but also as a staging area for building the sorted result
 
 mathematical core:
-	This is fundamentally about finding optimal paths through a state space
+	fundamentally about finding optimal paths through a state space
 	Each operation represents an edge in a graph where nodes are stack states
-	The challenge is finding the shortest path from initial state to sorted state
+	challenge is finding the shortest path from initial state to sorted state
+
+
 
 
 # Fundamental structure:
 
+
 ## Core Mathematical Properties:
 
 We have a sequence that needs to be transformed into ascending order
+
 Our operations are all reversible (each has an inverse)
 
 Operations either:
-a) Swap adjacent elements within a stack (sa, sb)
-b) Transfer elements between stacks (pa, pb)
-c) Rotate elements within a stack (ra, rb, rra, rrb)
+a. Swap adjacent elements within a stack (sa, sb)
+b. Transfer elements between stacks (pa, pb)
+c. Rotate elements within a stack (ra, rb, rra, rrb)
+
 
 
 ## Key Insight:
-The most powerful feature here is having two stacks. This isn't just about sorting - it's about using the second stack as a structured auxiliary space
+
+The most powerful feature here is having two stacks. 
+This isn't just about sorting - it's about using the second stack as a structured auxiliary space
 
 
 
@@ -47,10 +55,10 @@ pattern that emerges:
 
 
 
-From pure mathematical/algorithmic foundations, what are our core options?
+From pure mathematical/algorithmic foundations, what are my core options?
 
 Direct Stack Manipulation Approaches:
-	01_approach: (using B as descending auxiliary)
+	ayogun's approach (see other-progs): (using B as descending auxiliary)
 	Insertion sort variants
 	Selection sort variants
 	Bubble sort variants adapted for two stacks
@@ -66,6 +74,7 @@ State Space Search Approaches:
 	A* search with heuristics
 	Dynamic programming for optimal submoves
 	Pattern-based approaches (identifying and solving subpatterns)
+
 
 
 Each has different theoretical properties:

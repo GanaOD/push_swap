@@ -1,0 +1,24 @@
+push_swap/
+├── Makefile
+├── includes/
+│   ├── push_swap.h        # Main header with all declarations
+│   └── operations.h       # Optional: Could separate operation declarations
+├── srcs/
+│   ├── stack/
+│   │   ├── stack_init.c   # create_node, stack_add_front, stack_add_back
+│   │   ├── stack_utils.c  # stack_size, is_sorted, find_min, find_max
+│   │   └── stack_free.c   # free_stack and any cleanup functions
+│   ├── operations/
+│   │   ├── push_ops.c     # pa, pb
+│   │   ├── swap_ops.c     # sa, sb, ss
+│   │   ├── rotate_ops.c   # ra, rb, rr
+│   │   └── rev_rotate.c   # rra, rrb, rrr
+│   ├── algorithm/
+│   │   ├── sort_small.c   # Functions for sorting ≤3 numbers
+│   │   ├── sort_big.c     # Main sorting algorithm
+│   │   └── utils.c        # Algorithm helper functions
+│   ├── input/
+│   │   ├── parse.c        # Input parsing and validation
+│   │   └── error.c        # Error handling functions
+│   └── main.c             # Program entry point
+└── libft/                 # Your libft library

@@ -1,6 +1,4 @@
-why the stack structure is foundational:
-
-Why start with data structures:
+why the stack structure is foundational - why start with data structures:
 	They determine how we can manipulate and access data
 	They affect the efficiency of our operations
 	Every other function we write will depend on this structure
@@ -15,7 +13,7 @@ For this specific project - I need to:
 
 
 
-01_approach:
+possible approach:
 
 typedef struct s_stack
 {
@@ -42,6 +40,7 @@ typedef struct s_stack {
     int top;
     int capacity;
 } t_stack;
+
 
 // Simpler linked list (if you don't need bidirectional traversal)
 typedef struct s_stack {

@@ -2,6 +2,9 @@ https://github.com/ayogun/push_swap/tree/main
 https://medium.com/@ayogun/push-swap-c1f5d2d41e97 
 
 
+Sort of analysis with considerations re. implementing sth. v similar: incomplete
+
+
 Any number pushed to B should be placed so it maintains a descending order
 	When returning numbers to A, they'll naturally come back in ascending order
 	The key question becomes: "What's the most efficient way to maintain this ordered structure in B?"
@@ -15,39 +18,32 @@ When pushing back to A, they'll naturally come back sorted ascending
 This turns sorting into a sequence of "find best number to move" operations
 
 
+
 Optimization approach:
-
-For each push, calculate the total cost of all possible moves
-Choose the move that requires the fewest operations
-Use compound operations (like rr) to optimize when rotating both stacks
-
-
-This approach is elegant because:
-
-It maintains a clear invariant (B is always sorted descending)
-It breaks the problem into a series of "find optimal next move" decisions
-It naturally minimizes operations by always choosing the cheapest move
+	For each push, calculate the total cost of all possible moves
+	Choose the move that requires the fewest operations
+	Use compound operations (like rr) to optimize when rotating both stacks
 
 
+This approach:
+	maintains a clear invariant (B is always sorted descending)
+	breaks the problem into a series of "find optimal next move" decisions
+	naturally minimizes operations by always choosing the cheapest move
 
 
+more of a greedy algorithm:
+	At each step, it picks the "cheapest" number to move
+	It doesn't guarantee a globally optimal solution
+	It's somewhat heuristic rather than mathematically derived
 
-Looking more critically at Student A's approach:
 
-
-It's more of a greedy algorithm:
-
-At each step, it picks the "cheapest" number to move
-It doesn't guarantee a globally optimal solution
-It's somewhat heuristic rather than mathematically derived
 
 
 From a state space perspective:
-
-Each state is a configuration of the two stacks
-Each legal move (sa, sb, pa, etc.) represents a transition between states
-Our goal is to find the shortest path from initial state to sorted state
-This is fundamentally a shortest path problem in a discrete state space
+	Each state is a configuration of the two stacks
+	Each legal move (sa, sb, pa, etc.) represents a transition between states
+	Our goal is to find the shortest path from initial state to sorted state
+	This is fundamentally a shortest path problem in a discrete state space
 
 
 
@@ -62,20 +58,19 @@ Edge weights = 1 (each move costs one operation)
 Goal = Find shortest path from initial to sorted state
 
 
+
 For n numbers, the state space size would be:
-
-Total possible arrangements across two stacks = n!
-Need to consider all possible distributions between stacks
-This is a massive state space even for small n
-
+	Total possible arrangements across two stacks = n!
+	Need to consider all possible distributions between stacks
+	This is a massive state space even for small n
 
 
 
-This reveals why Student A's solution, while functional, isn't truly elegant from a mathematical perspective:
 
-It doesn't derive from the fundamental mathematics of the state space
-It uses intuitive heuristics rather than proven optimality
-It's more of a practical engineering solution than a mathematical one
+This reveals why this solution, while functional, isn't truly elegant from a mathematical perspective:
+	It doesn't derive from the fundamental mathematics of the state space
+	It uses intuitive heuristics rather than proven optimality
+	It's more of a practical engineering solution than a mathematical one
 
 
 

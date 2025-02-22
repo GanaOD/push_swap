@@ -22,6 +22,7 @@ For each arrangement, need the minimal sequence of operations to sort it.
 As a simple function:
 
 /* sort.c */
+
 void sort_three(t_stack **a)
 {
     int first = (*a)->nbr;

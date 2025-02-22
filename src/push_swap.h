@@ -6,7 +6,7 @@
 /*   By: go-donne <go-donne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:22:52 by go-donne          #+#    #+#             */
-/*   Updated: 2025/02/21 12:22:54 by go-donne         ###   ########.fr       */
+/*   Updated: 2025/02/22 13:41:39 by go-donne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,25 @@ t_stack *stack_pop(t_stack **stack);
 void    free_stack(t_stack **stack);
 
 /* Required operations */
+// swap.c
 void    sa(t_stack **a);
 void    sb(t_stack **b);
 void    ss(t_stack **a, t_stack **b);
+
+// push.c
 void    pa(t_stack **a, t_stack **b);
 void    pb(t_stack **a, t_stack **b);
-void    ra(t_stack **a);
-void    rb(t_stack **b);
-void    rr(t_stack **a, t_stack **b);
-void    rra(t_stack **a);
-void    rrb(t_stack **b);
-void    rrr(t_stack **a, t_stack **b);
+
+// rot.c
+void rotate(t_stack **stack)
+void ra(t_stack **a)
+void rb(t_stack **b)
+void rr(t_stack **a, t_stack **b)
+
+// rev.c  
+void reverse_rotate(t_stack **stack)
+void rra(t_stack **a)
+void rrb(t_stack **b)
+void rrr(t_stack **a, t_stack **b)
 
 #endif
