@@ -40,3 +40,55 @@ Clearly shows test progress with numbered cases
 Shows before/after state for each test
 Provides visual pass/fail indicators
 Returns proper exit code based on test results
+
+
+
+
+
+
+this type of problem - sorting with restricted operations - is well studied in mathematics and computer science. Let me break it down:
+
+What we're dealing with is:
+
+
+Permutation Groups:
+
+Each operation (sa, ra, rra) is a permutation
+We're finding minimal sequences of permutations to reach a target state
+This connects to Group Theory in mathematics, specifically the study of permutation groups
+
+
+State Space Search:
+
+Each stack state is a node in a graph
+Each operation is an edge to another state
+Finding optimal sorting sequences is essentially finding shortest paths in this graph
+For n=3, we have 6 possible states (3! permutations)
+
+
+Instruction Minimization:
+
+Like assembly programming or microcode optimization
+Finding minimal sequences of basic operations to achieve a result
+Similar to problems in circuit design and CPU instruction scheduling
+
+
+
+
+
+The specific case of sorting three numbers with restricted stack operations has been studied in the context of:
+
+
+Tower of Hanoi variants
+	Similar restricted movement problems
+	Finding optimal move sequences
+
+
+Pancake Sorting
+	A classic problem where you can only flip prefixes of the sequence
+	Very similar in nature to stack sorting with restricted operations
+
+
+Stack Sorting (by Knuth and others)
+	Classical problem of sorting using stacks
+	Studying which permutations are sortable with given operations

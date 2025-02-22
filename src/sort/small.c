@@ -6,7 +6,7 @@
 /*   By: go-donne <go-donne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 13:49:22 by go-donne          #+#    #+#             */
-/*   Updated: 2025/02/22 14:37:27 by go-donne         ###   ########.fr       */
+/*   Updated: 2025/02/22 15:26:44 by go-donne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,28 +37,16 @@ void sort_three(t_stack **a)
         return;
     get_three_values(*a, &first, &second, &third);
     
-    // Already sorted
     if (first < second && second < third)
         return;
-    // 2 1 3 -> 1 2 3
     else if (first > second && second < third && first < third)
         sa(a);
-    // 3 1 2 -> 1 3 2 -> 1 2 3
     else if (first > second && second < third && first > third)
-    {
-        ra(a);
-        sa(a);
-    }
-    // 2 3 1 -> 1 2 3
+        (rra(a), sa(a), rra(a), rra(a), sa(a));
     else if (first < second && second > third && first > third)
         rra(a);
-    // 3 2 1 -> 2 3 1 -> 1 2 3
     else if (first > second && second > third)
-    {
-        sa(a);
-        rra(a);
-    }
-    // 1 3 2 -> 1 2 3
+        (sa(a), rra(a));
     else if (first < second && second > third && first < third)
-        sa(a); // equivalent to: sa(a), ra(a), sa(a), rra(a)
+        (sa(a), ra(a));
 }

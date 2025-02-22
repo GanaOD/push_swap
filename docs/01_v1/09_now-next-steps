@@ -1,3 +1,5 @@
+# Current prog structure:
+
 .
 ├── docs
 │   ├── 00_high-level
@@ -43,9 +45,115 @@
         └── test.h
 
 
+# Successful 3-number sorting
 
-new dir? :
+Output from test/three:
 
-input/
-   ├── parse.c        # Input parsing and validation
-   └── error.c        # Error handling functions
+=== Testing sort_three ===
+
+Test 1: Already sorted
+Before: 1 2 3 
+After:  1 2 3 
+✓ PASS
+
+Test 2: Simple swap needed
+Before: 2 1 3 
+sa
+After:  1 2 3 
+✓ PASS
+
+Test 3: Reverse rotation needed
+Before: 2 3 1 
+rraAfter:  1 2 3 
+✓ PASS
+
+Test 4: Rotate and swap needed
+Before: 3 1 2 
+rrasa
+rrarrasa
+After:  1 2 3 
+✓ PASS
+
+Test 5: Reverse sorted
+Before: 3 2 1 
+sa
+rraAfter:  1 2 3 
+✓ PASS
+
+Test 6: Single swap at end
+Before: 1 3 2 
+sa
+ra
+After:  1 2 3 
+✓ PASS
+
+Test 7: NULL stack
+Before: 
+After:  
+✓ PASS
+
+Test 8: Single element
+Before: 1 
+After:  1 
+✓ PASS
+
+
+Results: 8/8 tests passed
+
+
+
+
+
+
+# Next key stages:
+
+Input Handling (/src/input/)
+- Parse arguments (both space-separated and quoted string)
+- Validate all numbers are valid integers (within INT_MIN/MAX)
+- Check for duplicates
+- Convert arguments to stack nodes
+- Error handling that outputs "Error\n" for invalid inputs
+* continuing with this as required to test everything else
+
+
+Sort Implementation for 4-5 Numbers (/src/sort/small.c)
+- Extend small.c to handle 4-5 numbers
+- For 4: Push one to B, sort 3, then insert back optimally
+- For 5: Push two to B, sort 3, then insert back optimally
+
+
+Main Algorithm (/src/sort/large.c)
+- Implement planned strategy:
+  1. Push all but 3 to B (keeping B somewhat ordered)
+  2. Sort remaining 3 in A
+  3. Insert back from B strategically
+
+
+Main Program Integration (/src/main.c)
+- Add size detection and routing to appropriate sort function
+- Implement proper cleanup/exit handling
+
+
+
+# Size categories
+Reason for extending small sort > 4-5 nrs:
+
+1. 3 size categories I care about:
+    <= 3 numbers: Direct sort (existing sort_three)
+    4-5 numbers: Small strategy (push some to B, sort 3, merge back)
+    > 5 numbers: Main algorithm 
+
+2. core strategy will scale like this:
+    Input: [4 1 6 2 8 3 7 5]
+
+    Step 1: Push most to B
+    A: [4 1 6]    B: [2 8 3 7 5]
+
+    Step 2: Sort the 3 in A
+    A: [1 4 6]    B: [2 8 3 7 5]
+
+    Step 3: Merge back strategically
+    A: [1 2 3 4 5 6 7 8]    B: []
+
+
+4-5 get special treatment is that they're small enough to optimize specifically
