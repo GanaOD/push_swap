@@ -1,0 +1,42 @@
+Test Suite: Push_swap 3-Number Sort (/test/three)
+
+
+Core Testing Requirements:
+
+Verifies all 6 possible permutations of 3 numbers
+Tests edge cases: NULL, single element
+Validates memory handling (creation and cleanup)
+
+
+
+Implementation Structure:
+
+test.h - Minimal header with core declarations
+test.c - Test implementation and helpers
+main.c - Simple entry point
+Makefile - Builds only required components
+
+
+
+Test Output Design:
+
+Shows input state -> output state
+Immediate visual verification of correctness
+No unnecessary formatting/complexity
+Clear pass/fail indication per case
+
+
+
+Test Helper Functions:
+
+create_stack_three() - Specific to 3-number testing
+print_stack() - Basic visualization
+Memory management wrappers
+
+
+
+
+Clearly shows test progress with numbered cases
+Shows before/after state for each test
+Provides visual pass/fail indicators
+Returns proper exit code based on test results

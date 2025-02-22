@@ -6,9 +6,11 @@
 /*   By: go-donne <go-donne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:22:27 by go-donne          #+#    #+#             */
-/*   Updated: 2025/02/22 13:41:39 by go-donne         ###   ########.fr       */
+/*   Updated: 2025/02/22 14:35:46 by go-donne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 // swap first 2 elements of stack
 void swap(t_stack **stack)

@@ -6,9 +6,11 @@
 /*   By: go-donne <go-donne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:22:29 by go-donne          #+#    #+#             */
-/*   Updated: 2025/02/22 13:41:40 by go-donne         ###   ########.fr       */
+/*   Updated: 2025/02/22 14:38:02 by go-donne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 // Push top element from src to dst
 // "Private" core function - does the actual work

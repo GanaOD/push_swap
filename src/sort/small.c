@@ -6,9 +6,11 @@
 /*   By: go-donne <go-donne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 13:49:22 by go-donne          #+#    #+#             */
-/*   Updated: 2025/02/22 13:49:25 by go-donne         ###   ########.fr       */
+/*   Updated: 2025/02/22 14:37:27 by go-donne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 // Helper to get values while maintaining norm length
 static void get_three_values(t_stack *stack, int *a, int *b, int *c)
@@ -18,12 +20,12 @@ static void get_three_values(t_stack *stack, int *a, int *b, int *c)
     *c = stack->next->next->nbr;
 }
 
-// Returns 1 if stack of 3 numbers is sorted, 0 otherwise
-static int is_three_sorted(t_stack *stack)
-{
-    return (stack->nbr < stack->next->nbr && 
-            stack->next->nbr < stack->next->next->nbr);
-}
+// // Returns 1 if stack of 3 numbers is sorted, 0 otherwise
+// static int is_three_sorted(t_stack *stack)
+// {
+//     return (stack->nbr < stack->next->nbr && 
+//             stack->next->nbr < stack->next->next->nbr);
+// }
 
 void sort_three(t_stack **a)
 {

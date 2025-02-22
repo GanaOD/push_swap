@@ -6,9 +6,11 @@
 /*   By: go-donne <go-donne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:22:24 by go-donne          #+#    #+#             */
-/*   Updated: 2025/02/22 13:41:41 by go-donne         ###   ########.fr       */
+/*   Updated: 2025/02/22 14:35:42 by go-donne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 // rotate up (first element becomes last)
 void rotate(t_stack **stack)

@@ -1,0 +1,51 @@
+.
+├── docs
+│   ├── 00_high-level
+│   │   ├── 00_general-project
+│   │   │   ├── 00_plan-design
+│   │   │   └── 01_algos_data-structs
+│   │   └── 01_other-progs-analysis
+│   │       └── 00_ayogun
+│   ├── 01_v1
+│   │   ├── 00_plan-design
+│   │   ├── 01_algorithm-representations.md
+│   │   ├── 02_considerations.md
+│   │   ├── 03_stack-struct
+│   │   ├── 04_possible-dir-structure
+│   │   ├── 05_3-nr-sort
+│   │   ├── 05_basic-stack-ops
+│   │   ├── 06_stack_data-structure-ops
+│   │   ├── 07_developing_3-nr-sort
+│   │   └── 08_test_3nr-sort
+│   └── resources.md
+├── inc
+│   └── push_swap.h
+├── src
+│   ├── main.c
+│   ├── ops
+│   │   ├── push.c
+│   │   ├── rev.c
+│   │   ├── rot.c
+│   │   └── swap.c
+│   ├── sort
+│   │   ├── large.c // main sorting algorithm
+│   │   └── small.c // sort <=3 numbers
+│   └── stack
+│       ├── free.c
+│       ├── init.c
+│       ├── ops.c
+│       └── utils.c
+└── test
+    └── three
+        ├── Makefile
+        ├── main.c
+        ├── test.c
+        └── test.h
+
+
+
+new dir? :
+
+input/
+   ├── parse.c        # Input parsing and validation
+   └── error.c        # Error handling functions

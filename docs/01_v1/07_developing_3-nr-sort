@@ -1,0 +1,4 @@
+3-number sort is foundation:
+if it's rock solid, building the rest of the algorithm will be much smoother. 
+Want to avoid debugging both the core operations and the main algorithm simultaneously.
+
