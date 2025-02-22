@@ -6,7 +6,7 @@
 /*   By: go-donne <go-donne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:22:52 by go-donne          #+#    #+#             */
-/*   Updated: 2025/02/22 15:20:39 by go-donne         ###   ########.fr       */
+/*   Updated: 2025/02/22 16:00:30 by go-donne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,8 @@ void rrr(t_stack **a, t_stack **b);
 
 /* Sorting functions */
 void    sort_three(t_stack **a);
+void    sort_four(t_stack **a, t_stack **b);
+void    sort_five(t_stack **a, t_stack **b);
+void    sort_small(t_stack **a, t_stack **b);
 
 #endif

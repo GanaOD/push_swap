@@ -103,6 +103,13 @@ Results: 8/8 tests passed
 
 
 
+Have a base strategy:
+- Just hardcode optimal moves for 3 numbers
+- For all bigger inputs: dump to B (except 3), sort 3, merge back
+
+
+
+
 
 
 # Next key stages:
@@ -117,6 +124,7 @@ Input Handling (/src/input/)
 
 
 Sort Implementation for 4-5 Numbers (/src/sort/small.c)
+OPTIMISATION
 - Extend small.c to handle 4-5 numbers
 - For 4: Push one to B, sort 3, then insert back optimally
 - For 5: Push two to B, sort 3, then insert back optimally
@@ -135,8 +143,14 @@ Main Program Integration (/src/main.c)
 
 
 
+
 # Size categories
+
 Reason for extending small sort > 4-5 nrs:
+
+To pass evaluation, need to handle small sets efficiently
+Using a simpler algorithm for 4-5 numbers helps keep the operation count low for these cases
+
 
 1. 3 size categories I care about:
     <= 3 numbers: Direct sort (existing sort_three)
@@ -157,3 +171,5 @@ Reason for extending small sort > 4-5 nrs:
 
 
 4-5 get special treatment is that they're small enough to optimize specifically
+    For 4 numbers: Push 1 to B, use working 3-number sort, then merge back
+    For 5 numbers: Push 2 to B, use working 3-number sort, then merge back

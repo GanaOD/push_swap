@@ -6,7 +6,7 @@
 #    By: go-donne <go-donne@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/22 14:02:17 by go-donne          #+#    #+#              #
-#    Updated: 2025/02/22 15:20:40 by go-donne         ###   ########.fr        #
+#    Updated: 2025/02/22 16:03:41 by go-donne         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SORT_DIR = $(SRC_DIR)/sort
 
 # Source files with full paths
 SRCS = $(STACK_DIR)/ops.c \
+       $(STACK_DIR)/utils.c \
        $(SORT_DIR)/small.c \
        $(OPS_DIR)/push.c \
        $(OPS_DIR)/swap.c \

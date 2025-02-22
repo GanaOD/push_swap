@@ -52,25 +52,22 @@ What we're dealing with is:
 
 
 Permutation Groups:
-
-Each operation (sa, ra, rra) is a permutation
-We're finding minimal sequences of permutations to reach a target state
-This connects to Group Theory in mathematics, specifically the study of permutation groups
+	Each operation (sa, ra, rra) is a permutation
+	We're finding minimal sequences of permutations to reach a target state
+	This connects to Group Theory in mathematics, specifically the study of permutation groups
 
 
 State Space Search:
-
-Each stack state is a node in a graph
-Each operation is an edge to another state
-Finding optimal sorting sequences is essentially finding shortest paths in this graph
-For n=3, we have 6 possible states (3! permutations)
+	Each stack state is a node in a graph
+	Each operation is an edge to another state
+	Finding optimal sorting sequences is essentially finding shortest paths in this graph
+	For n=3, we have 6 possible states (3! permutations)
 
 
 Instruction Minimization:
-
-Like assembly programming or microcode optimization
-Finding minimal sequences of basic operations to achieve a result
-Similar to problems in circuit design and CPU instruction scheduling
+	Like assembly programming or microcode optimization
+	Finding minimal sequences of basic operations to achieve a result
+	Similar to problems in circuit design and CPU instruction scheduling
 
 
 
