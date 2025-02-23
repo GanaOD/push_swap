@@ -61,3 +61,11 @@ void test_case(...) {
     // Count them
     assert(op_count <= max_ops_for_size[size]);
 }
+
+
+
+Buffering issue between write & printf, used in test suite?
+
+added fflush after write calls in ops
+
+Still concatenated output

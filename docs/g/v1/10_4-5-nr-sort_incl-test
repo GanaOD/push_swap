@@ -1,0 +1,65 @@
+# Strategy:
+	4 numbers: Find min, move it to top, push to B, sort 3, push back
+	5 numbers: Find min twice, push both to B, sort 3, push both back
+
+Operation counts:
+	4 numbers: ~5-7 operations
+	5 numbers: ~8-12 operations
+
+
+
+# Testing:
+Unified into existing test suite: now extended to "small"
+	Test infrastructure (creating stacks, verification) can be shared
+	Easier to run all small number tests at once
+
+
+
+## changes and additions:
+
+Unified test structure:
+	All small number tests in one place
+	Shared helper functions (create_stack_n, verify_sorted)
+	Separate test functions for 3, 4, and 5 numbers
+
+
+New test cases:
+	Added comprehensive tests for 4 and 5 numbers
+	Each size has its own test function for clarity
+	All tests use the same verification infrastructure
+
+
+
+
+## tests debug:
+
+tests did not output operations one per line with a newline character after each
+
+changes:
+	Removed all comma operators that were combining operations
+	Added proper blocks with curly braces for multi-operation sequences
+	Each operation is now called separately on its own line
+
+
+changes should ensure:
+	Each operation is printed on its own line with a proper newline character
+	Clear separation between the "Before:" stack display, operations, and "After:" stack display
+	No operations run together in the output
+	Proper formatting throughout the test output
+
+
+
+fflush after write calls in ops
+still have concatenation of results in output
+
+suggests the issue might be in the timing/sequence of our operations rather than just buffering
+
+
+
+
+More consistent strategy across all functions
+Better rotation choices based on position
+Simpler, more reliable logic for each case
+Removed unnecessary complexity
+
+This should now handle all test cases correctly, including the reverse sorted case (5 4 3 2 1). The key was making the code simpler and more consistent, rather than trying to optimize for specific cases.

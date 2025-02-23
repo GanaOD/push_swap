@@ -6,7 +6,7 @@
 #    By: go-donne <go-donne@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/22 14:02:17 by go-donne          #+#    #+#              #
-#    Updated: 2025/02/22 16:03:41 by go-donne         ###   ########.fr        #
+#    Updated: 2025/02/23 16:22:58 by go-donne         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS = $(STACK_DIR)/ops.c \
        $(OPS_DIR)/swap.c \
        $(OPS_DIR)/rot.c \
        $(OPS_DIR)/rev.c \
+       test_utils.c \
        test.c \
        main.c
 

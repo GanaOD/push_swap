@@ -6,76 +6,127 @@
 /*   By: go-donne <go-donne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 14:02:23 by go-donne          #+#    #+#             */
-/*   Updated: 2025/02/22 16:00:29 by go-donne         ###   ########.fr       */
+/*   Updated: 2025/02/23 16:32:24 by go-donne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.h"
 
+static int ft_itoa_buf(char *buf, long n)
+{
+    char    tmp[20];
+    int     i;
+    int     len;
+    int     neg;
+
+    if (n == 0)
+    {
+        buf[0] = '0';
+        return (1);
+    }
+    neg = (n < 0);
+    i = 0;
+    while (n)
+    {
+        tmp[i++] = '0' + (neg ? -(n % 10) : (n % 10));
+        n /= 10;
+    }
+    if (neg)
+        tmp[i++] = '-';
+    len = i;
+    while (i--)
+        buf[len - 1 - i] = tmp[i];
+    return (len);
+}
+
 void print_stack(t_stack *stack)
 {
+    char buf[20];
+    int len;
+
+    // Start on fresh line
+    write(1, "\n", 1);
     while (stack)
     {
-        printf("%ld ", stack->nbr);
+        len = ft_itoa_buf(buf, stack->nbr);
+        write(1, buf, len);
+        write(1, " ", 1);
         stack = stack->next;
     }
-    printf("\n");
+    write(1, "\n", 1);
 }
 
-t_stack *create_stack_n(int arr[], int size)
+void print_test_header(const char *title)
 {
-    t_stack *stack;
-    int i;
-
-    stack = NULL;
-    i = 0;
-    while (i < size)
-    {
-        stack_add_back(&stack, create_node(arr[i]));
-        i++;
-    }
-    return (stack);
+    write(1, "\n=== Testing ", 12);
+    write(1, title, strlen(title));
+    write(1, " ===\n\n", 7);
 }
 
-int verify_sorted(t_stack *stack, int expected[], int size)
+void print_test_case(int test_num, const char *desc)
 {
-    int i;
+    char buf[20];
+    int len;
 
-    i = 0;
-    while (stack && i < size)
-    {
-        if (stack->nbr != expected[i])
-            return (0);
-        stack = stack->next;
-        i++;
-    }
-    return (i == size && !stack);
+    write(1, "Test ", 5);
+    len = snprintf(buf, sizeof(buf), "%d", test_num);
+    write(1, buf, len);
+    write(1, ": ", 2);
+    write(1, desc, strlen(desc));
+    write(1, "\n", 1);
+}
+
+void print_result(int passed)
+{
+    if (passed)
+        write(1, "✓ PASS\n", 8);
+    else
+        write(1, "✗ FAIL\n", 8);
+    write(1, "\n", 1);
+}
+
+void print_final_stats(t_test_stats *stats)
+{
+    char buf[100];
+    int len;
+
+    write(1, "\nFinal Results: ", 15);
+    len = snprintf(buf, sizeof(buf), "%d/%d tests passed\n\n", 
+                  stats->passed, stats->total);
+    write(1, buf, len);
 }
 
 static void test_case(t_stack **a, t_stack **b, int expected[], 
                      int size, char *desc, t_test_stats *stats)
 {
-    printf("Test %d: %s\n", stats->total + 1, desc);
-    printf("Before: ");
+    write(1, "\nTest ", 6);
+    char num = '0' + (stats->total + 1);
+    write(1, &num, 1);
+    write(1, ": ", 2);
+    write(1, desc, strlen(desc));
+    write(1, "\n", 1);
+    
+    write(1, "Before:", 7);
     print_stack(*a);
     
     sort_small(a, b);
     
-    printf("After:  ");
+    write(1, "After:", 6);
     print_stack(*a);
     
+    write(1, "\n", 1);
     if (verify_sorted(*a, expected, size))
     {
-        printf("✓ PASS\n");
+        write(1, "✓ PASS\n", 8);
         stats->passed++;
     }
     else
     {
-        printf("✗ FAIL\n");
+        write(1, "✗ FAIL\n", 8);
         stats->failed++;
     }
     stats->total++;
-    printf("\n");
+    write(1, "\n", 1);
     
     free_stack(a);
     free_stack(b);
@@ -88,7 +139,7 @@ void test_three(t_test_stats *stats)
     int arr[3];
     int expected[3] = {1, 2, 3};
 
-    printf("\n=== Testing 3 Numbers ===\n\n");
+    print_test_header("3 Numbers");
 
     // Already sorted
     arr[0] = 1; arr[1] = 2; arr[2] = 3;
@@ -102,7 +153,7 @@ void test_three(t_test_stats *stats)
     b = NULL;
     test_case(&a, &b, expected, 3, "Simple swap needed", stats);
 
-    // Other permutations...
+    // Reverse rotation needed
     arr[0] = 2; arr[1] = 3; arr[2] = 1;
     a = create_stack_n(arr, 3);
     b = NULL;
@@ -116,7 +167,7 @@ void test_four(t_test_stats *stats)
     int arr[4];
     int expected[4] = {1, 2, 3, 4};
 
-    printf("\n=== Testing 4 Numbers ===\n\n");
+    print_test_header("4 Numbers");
 
     // Already sorted
     arr[0] = 1; arr[1] = 2; arr[2] = 3; arr[3] = 4;
@@ -144,7 +195,7 @@ void test_five(t_test_stats *stats)
     int arr[5];
     int expected[5] = {1, 2, 3, 4, 5};
 
-    printf("\n=== Testing 5 Numbers ===\n\n");
+    print_test_header("5 Numbers");
 
     // Already sorted
     arr[0] = 1; arr[1] = 2; arr[2] = 3; arr[3] = 4; arr[4] = 5;

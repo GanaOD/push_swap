@@ -6,7 +6,7 @@
 /*   By: go-donne <go-donne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:22:52 by go-donne          #+#    #+#             */
-/*   Updated: 2025/02/22 16:00:30 by go-donne         ###   ########.fr       */
+/*   Updated: 2025/02/23 16:20:22 by go-donne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
