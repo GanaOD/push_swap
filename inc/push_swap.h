@@ -6,7 +6,7 @@
 /*   By: go-donne <go-donne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:22:52 by go-donne          #+#    #+#             */
-/*   Updated: 2025/02/23 16:20:22 by go-donne         ###   ########.fr       */
+/*   Updated: 2025/02/23 16:59:40 by go-donne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include "../libft/libft.h"  // Update path if needed
 
 typedef struct s_stack
 {
@@ -31,6 +32,9 @@ void    stack_add_front(t_stack **stack, t_stack *new);
 void    stack_add_back(t_stack **stack, t_stack *new);
 t_stack *stack_pop(t_stack **stack);
 void    free_stack(t_stack **stack);
+
+/* Input handling */
+t_stack *parse_args(int ac, char **av);
 
 /* Stack utility functions */
 int     stack_size(t_stack *stack);

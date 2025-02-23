@@ -1,0 +1,22 @@
+# core task: 
+convert input arguments into a valid stack while catching any errors
+
+Must handle both:
+	./push_swap 1 2 3
+	./push_swap "1 2 3"
+
+Must validate:
+	Numbers are integers (within INT_MIN/MAX)
+	No duplicates
+	All inputs are valid numbers
+
+Must output "Error\n" to stderr for any error
+
+
+
+
+# key insights
+Parse one number at a time, validating as we go
+Check for duplicates before adding each number
+Free everything on any error
+Keep error handling simple - just return NULL and let caller handle it
